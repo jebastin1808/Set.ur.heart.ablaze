@@ -1,89 +1,343 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jebastin Paul P J - Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f9;
-    }
-    .hero {
-      background-color: #343a40;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .about, .projects, .contact {
-      padding: 3rem 2rem;
-    }
-    .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jebastin Paul P J - Student Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .student-name {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .student-info {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        nav a.active {
+            background-color: var(--primary-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .profile-details {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .info-item {
+            background-color: var(--light-color);
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+        
+        .info-value {
+            color: var(--dark-color);
+        }
+        
+        .welcome-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--secondary-color);
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .college-logo {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .student-name {
+                font-size: 2rem;
+            }
+            
+            .profile-container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <section class="hero">
-    <h1>Hello, I'm Jebastin Paul P J</h1>
-    <p>Data Science Enthusiast | Problem Solver | Creative Thinker</p>
-  </section>
-
-  <section class="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I have completed courses in Python for Data Science and Data Science for Engineers. I am passionate about analyzing data and deriving insights to solve real-world problems. I actively participate in extracurricular activities and proudly served in the National Cadet Corps (N.C.C.).</p>
-    </div>
-  </section>
-
-  <section class="projects bg-light">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Supply Chain Optimization</h5>
-              <p class="card-text">A project focused on optimizing supply chain processes using data-driven techniques for better efficiency and cost reduction. Implemented strategies based on data analysis to improve logistics and reduce delivery time.</p>
+    <header>
+        <div class="header-content">
+            <div class="college-logo">AAA</div>
+            <h1 class="student-name">Jebastin Paul P J</h1>
+            <p class="student-info">B.Tech Information Technology | 2023-2027</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="active">Home</a>
+            <a href="academic.html">Academic</a>
+            <a href="my profile.html">My profile</a>
+            <a href="skills.html">Skills</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="card">
+            <h2>Welcome to My Portfolio</h2>
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="jebastin.jpg" alt="Jebastin Paul P J">
+                </div>
+                <div class="profile-details">
+                    <p class="welcome-message">
+                        Hello! I'm Jebastin Paul P J, a B.Tech Information Technology student at AAA College of Engineering. 
+                        I'm passionate about technology and innovation. This portfolio showcases my academic journey, skills,
+                        achievements, and more. Feel free to explore the different sections to learn more about me.
+                    </p>
+                    <a href="academic.html" class="button">Explore My Academic Journey</a>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>If you'd like to get in touch, feel free to email me at:</p>
-      <p><strong>josephuchiha1808@gmail.com</strong></p>
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2025 Jebasin Paul P J</p>
-  </footer>
-
+        </section>
+        
+        <section class="card">
+            <h2>Personal Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Register Number</span>
+                    <span class="info-value">953723205011</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">Jebastin Paul P J</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Batch</span>
+                    <span class="info-value">2023-2027</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Programme</span>
+                    <span class="info-value">B.Tech Information Technology</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Semester</span>
+                    <span class="info-value">Fourth Semester</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Department</span>
+                    <span class="info-value">B.Tech IT</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date of Birth</span>
+                    <span class="info-value">18/08/2005</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Gender</span>
+                    <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Father's Name</span>
+                    <span class="info-value">Peter J J S</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Father's Mobile</span>
+                    <span class="info-value">8880300300</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mother's Name</span>
+                    <span class="info-value">Priya T</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mother's Mobile</span>
+                    <span class="info-value">8880140140</span>
+                </div>
+            </div>
+        </section>
+        
+        <p class="quote">"Learning is a treasure that will follow its owner everywhere." — Chinese Proverb</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Jebastin Paul P J - AAA College of Engineering</p>
+        <p>B.Tech Information Technology | 2023-2027</p>
+    </footer>
 </body>
 </html>
